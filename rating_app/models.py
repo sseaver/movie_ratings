@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.db.models import Avg
 # Create your models here.
 
 
@@ -11,6 +11,9 @@ class Rater(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+    def get_average_rate(self):
+        return Data.objects.filter(userz=self).aggregate(Avg('rating')).get("rating__avg")
 
 
 class Movie(models.Model):
@@ -40,6 +43,9 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_average_rating(self):
+        return Data.objects.filter(itemz=self).aggregate(Avg('rating')).get("rating__avg")
 
 
 class Data(models.Model):
