@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Top 20 Movies</title>
+  </head>
+  <body>
+    <p>
+      <a href="/">Home</a>
+      <a href="/top_movie/">Top 20 Movies</a>
+      <a href="/movies/">All Movies</a>
+      <a href="/raters/">All Raters</a>
+
+    </p>
+    <h1>Top 20 Movies</h1>
+    <p>
+      {% for row in top_movies %}
+        <a href="/movie/{{ row.id }}"> Title: {{ row }} <br> Rating: {{ row.get_average_rating }}<br><br></a>
+      {% endfor %}
+    </p>
+  </body>
+</html>

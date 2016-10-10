@@ -13,7 +13,7 @@ class Rater(models.Model):
         return str(self.id)
 
     def get_average_rate(self):
-        return Data.objects.filter(userz=self).aggregate(Avg('rating')).get("rating__avg")
+        return round(Data.objects.filter(userz=self).aggregate(Avg('rating')).get("rating__avg"), 2)
 
 
 class Movie(models.Model):
@@ -45,7 +45,7 @@ class Movie(models.Model):
         return self.name
 
     def get_average_rating(self):
-        return Data.objects.filter(itemz=self).aggregate(Avg('rating')).get("rating__avg")
+        return round(Data.objects.filter(itemz=self).aggregate(Avg('rating')).get("rating__avg"), 2)
 
 
 class Data(models.Model):

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Raters</title>
+  </head>
+  <body>
+    <p>
+      <a href="/">Home</a>
+      <a href="/top_movie/">Top 20 Movies</a>
+      <a href="/movies/">All Movies</a>
+      <a href="/raters/">All Raters</a>
+    </p>
+    <h1>Raters</h1>
+    <p>
+      {% for row in all_raters %}
+        <a href="/rater/{{ row.userz.id }}"> {{ row.id }}<br><br>
+      {% endfor %}
+    </p>
+
+
+  </body>
+</html>

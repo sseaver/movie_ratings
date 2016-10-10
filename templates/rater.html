@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rater</title>
+  </head>
+  <body>
+    <p>
+      <a href="/">Home</a>
+      <a href="/top_movie/">Top 20 Movies</a>
+      <a href="/movies/">All Movies</a>
+      <a href="/raters/">All Raters</a>
+    </p>
+    <h1>Rater {{ rater.id }}</h1>
+    <p>
+      {% for row in rater_info %}
+        Age: {{ row.age }}<br>
+        Gender: {{ row.gender }}<br>
+        Occupation: {{ row.occupation }}<br>
+        Zip Code: {{ row.zipcode }}<br>
+      {% endfor %}
+      <br><br>
+    </p>
+    <p>
+      {% for row in all_raters %}
+        <a href="/movie/{{ row.itemz.id }}">{{ row.itemz.name }} <br> {{ row.rating }}<br><br></a>
+      {% endfor %}
+    </p>
+
+  </body>
+</html>
